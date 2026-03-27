@@ -1,31 +1,43 @@
 using UnityEngine;
-using UnityEngine.Tilemaps; // Required to talk to the Tilemap
+using UnityEngine.Tilemaps; // Required to erase the tiles
 
 public class BombExplosion : MonoBehaviour
 {
-    public BombPlacement BombPlacement;
     public float timer = 2f;
     
-    // The reference to your orange blocks layer
-    public Tilemap destructibleTilemap; 
+    // Drag your DestructibleMap into this slot on the Bomb Prefab in the Inspector
+    private Tilemap destructibleTilemap; 
+    public float Force = 1f;
 
     void Start()
     {
+        GameObject mapObject = GameObject.FindGameObjectWithTag("Destructible");
+
+        if (mapObject != null)
+        {
+            // Grab the actual Tilemap component from the object we found
+            destructibleTilemap = mapObject.GetComponent<Tilemap>();
+        }
+        else
+        {
+            Debug.LogError("The bomb couldn't find anything tagged 'Destructible'!");
+        }
+
         StartCoroutine(ExplodeAfterTimer());
     }
 
     private System.Collections.IEnumerator ExplodeAfterTimer()
     {
-        // 1. Pause for the duration of the timer
+        // 1. Pause for the timer
         yield return new WaitForSeconds(timer);
 
         Vector2 pos = transform.position;
 
-        // 2. Fire raycasts in all four directions
-        RaycastHit2D hitUp = Physics2D.Raycast(pos, Vector2.up, 1f);
-        RaycastHit2D hitDown = Physics2D.Raycast(pos, Vector2.down, 1f);
-        RaycastHit2D hitLeft = Physics2D.Raycast(pos, Vector2.left, 1f);
-        RaycastHit2D hitRight = Physics2D.Raycast(pos, Vector2.right, 1f);
+        // 3. Fire the actual physics raycasts
+        RaycastHit2D hitUp = Physics2D.Raycast(pos, Vector2.up, Force);
+        RaycastHit2D hitDown = Physics2D.Raycast(pos, Vector2.down, Force);
+        RaycastHit2D hitLeft = Physics2D.Raycast(pos, Vector2.left, Force);
+        RaycastHit2D hitRight = Physics2D.Raycast(pos, Vector2.right, Force);
         
         // --- CHECK UP ---
         if (hitUp.collider != null)
@@ -87,7 +99,7 @@ public class BombExplosion : MonoBehaviour
             }
         }
 
-        // 3. Remove the bomb
+        // 4. Destroy the bomb
         Destroy(gameObject);
     }
 }
