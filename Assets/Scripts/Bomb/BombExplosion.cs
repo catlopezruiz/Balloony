@@ -1,21 +1,26 @@
 using UnityEngine;
-using UnityEngine.Tilemaps; // Required to erase the tiles
+using UnityEngine.Tilemaps;
 
 public class BombExplosion : MonoBehaviour
 {
     public float timer = 2f;
-    
-    // Drag your DestructibleMap into this slot on the Bomb Prefab in the Inspector
-    private Tilemap destructibleTilemap; 
-    public float Force = 1f;
+    public float Force = 1f; // Make sure this is set to 3 on your Prefab!
+
+    // The locks that stop the explosion from going through gray walls
+    bool barrierUp = false;
+    bool barrierDown = false;
+    bool barrierLeft = false;
+    bool barrierRight = false;
+
+    private Tilemap destructibleTilemap;
 
     void Start()
     {
+        // Automatically find the orange blocks map
         GameObject mapObject = GameObject.FindGameObjectWithTag("Destructible");
 
         if (mapObject != null)
         {
-            // Grab the actual Tilemap component from the object we found
             destructibleTilemap = mapObject.GetComponent<Tilemap>();
         }
         else
@@ -28,78 +33,114 @@ public class BombExplosion : MonoBehaviour
 
     private System.Collections.IEnumerator ExplodeAfterTimer()
     {
-        // 1. Pause for the timer
         yield return new WaitForSeconds(timer);
-
         Vector2 pos = transform.position;
 
-        // 3. Fire the actual physics raycasts
-        RaycastHit2D hitUp = Physics2D.Raycast(pos, Vector2.up, Force);
-        RaycastHit2D hitDown = Physics2D.Raycast(pos, Vector2.down, Force);
-        RaycastHit2D hitLeft = Physics2D.Raycast(pos, Vector2.left, Force);
-        RaycastHit2D hitRight = Physics2D.Raycast(pos, Vector2.right, Force);
-        
-        // --- CHECK UP ---
-        if (hitUp.collider != null)
+        // Step outward 1 tile at a time, up to your Force limit
+        for (int i = 1; i <= Force; i++)
         {
-            if (hitUp.collider.CompareTag("Player"))
+            // --- CHECK UP ---
+            if (!barrierUp)
             {
-                Debug.Log("Hit the Player!");
+                // Find the exact center of the tile above us
+                Vector2 checkPos = pos + (Vector2.up * i);
+                
+                // Drop a pin and grab EVERYTHING sitting on that exact spot
+                Collider2D[] hitsUp = Physics2D.OverlapPointAll(checkPos);
+
+                foreach (Collider2D hit in hitsUp)
+                {
+                    if (hit.CompareTag("Barrier"))
+                    {
+                        barrierUp = true; // Lock the door!
+                    }
+                    else if (hit.CompareTag("Destructible") && destructibleTilemap != null)
+                    {
+                        // Delete the orange tile at this exact spot
+                        Vector3Int cellPosition = destructibleTilemap.WorldToCell(checkPos);
+                        destructibleTilemap.SetTile(cellPosition, null);
+                    }
+                    else if (hit.CompareTag("Player"))
+                    {
+                        Debug.Log("Hit the Player!");
+                    }
+                }
             }
-            else if (hitUp.collider.CompareTag("Destructible"))
+
+            // --- CHECK DOWN ---
+            if (!barrierDown)
             {
-                Vector2 hitPosition = hitUp.point + (Vector2.up * 0.1f);
-                Vector3Int cellPosition = destructibleTilemap.WorldToCell(hitPosition);
-                destructibleTilemap.SetTile(cellPosition, null);
+                Vector2 checkPos = pos + (Vector2.down * i);
+                Collider2D[] hitsDown = Physics2D.OverlapPointAll(checkPos);
+
+                foreach (Collider2D hit in hitsDown)
+                {
+                    if (hit.CompareTag("Barrier"))
+                    {
+                        barrierDown = true;
+                    }
+                    else if (hit.CompareTag("Destructible") && destructibleTilemap != null)
+                    {
+                        Vector3Int cellPosition = destructibleTilemap.WorldToCell(checkPos);
+                        destructibleTilemap.SetTile(cellPosition, null);
+                    }
+                    else if (hit.CompareTag("Player"))
+                    {
+                        Debug.Log("Hit the Player!");
+                    }
+                }
+            }
+
+            // --- CHECK LEFT ---
+            if (!barrierLeft)
+            {
+                Vector2 checkPos = pos + (Vector2.left * i);
+                Collider2D[] hitsLeft = Physics2D.OverlapPointAll(checkPos);
+
+                foreach (Collider2D hit in hitsLeft)
+                {
+                    if (hit.CompareTag("Barrier"))
+                    {
+                        barrierLeft = true;
+                    }
+                    else if (hit.CompareTag("Destructible") && destructibleTilemap != null)
+                    {
+                        Vector3Int cellPosition = destructibleTilemap.WorldToCell(checkPos);
+                        destructibleTilemap.SetTile(cellPosition, null);
+                    }
+                    else if (hit.CompareTag("Player"))
+                    {
+                        Debug.Log("Hit the Player!");
+                    }
+                }
+            }
+
+            // --- CHECK RIGHT ---
+            if (!barrierRight)
+            {
+                Vector2 checkPos = pos + (Vector2.right * i);
+                Collider2D[] hitsRight = Physics2D.OverlapPointAll(checkPos);
+
+                foreach (Collider2D hit in hitsRight)
+                {
+                    if (hit.CompareTag("Barrier"))
+                    {
+                        barrierRight = true;
+                    }
+                    else if (hit.CompareTag("Destructible") && destructibleTilemap != null)
+                    {
+                        Vector3Int cellPosition = destructibleTilemap.WorldToCell(checkPos);
+                        destructibleTilemap.SetTile(cellPosition, null);
+                    }
+                    else if (hit.CompareTag("Player"))
+                    {
+                        Debug.Log("Hit the Player!");
+                    }
+                }
             }
         }
 
-        // --- CHECK DOWN ---
-        if (hitDown.collider != null)
-        {
-            if (hitDown.collider.CompareTag("Player"))
-            {
-                Debug.Log("Hit the Player!");
-            }
-            else if (hitDown.collider.CompareTag("Destructible"))
-            {
-                Vector2 hitPosition = hitDown.point + (Vector2.down * 0.1f);
-                Vector3Int cellPosition = destructibleTilemap.WorldToCell(hitPosition);
-                destructibleTilemap.SetTile(cellPosition, null);
-            }
-        }
-
-        // --- CHECK LEFT ---
-        if (hitLeft.collider != null)
-        {
-            if (hitLeft.collider.CompareTag("Player"))
-            {
-                Debug.Log("Hit the Player!");
-            }
-            else if (hitLeft.collider.CompareTag("Destructible"))
-            {
-                Vector2 hitPosition = hitLeft.point + (Vector2.left * 0.1f);
-                Vector3Int cellPosition = destructibleTilemap.WorldToCell(hitPosition);
-                destructibleTilemap.SetTile(cellPosition, null);
-            }
-        }
-
-        // --- CHECK RIGHT ---
-        if (hitRight.collider != null)
-        {
-            if (hitRight.collider.CompareTag("Player"))
-            {
-                Debug.Log("Hit the Player!");
-            }
-            else if (hitRight.collider.CompareTag("Destructible"))
-            {
-                Vector2 hitPosition = hitRight.point + (Vector2.right * 0.1f);
-                Vector3Int cellPosition = destructibleTilemap.WorldToCell(hitPosition);
-                destructibleTilemap.SetTile(cellPosition, null);
-            }
-        }
-
-        // 4. Destroy the bomb
+        // Destroy the bomb itself
         Destroy(gameObject);
     }
 }

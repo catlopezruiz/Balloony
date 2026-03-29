@@ -171,9 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6864e53c5b2fac4eab18c7989954097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BombExplosion
-  BombPlacement: {fileID: 0}
   timer: 2
-  destructibleTilemap: {fileID: 0}
+  Force: 3
 --- !u!114 &5648447588367305950
 MonoBehaviour:
   m_ObjectHideFlags: 0
