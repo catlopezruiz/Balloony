@@ -1,15 +1,15 @@
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Player2Movement : MonoBehaviour
 {
     public float moveSpeed = 5f;
 
     // The [Header] tag just makes a nice bold title in your Unity Inspector!
     [Header("Player Controls")]
-    public KeyCode WKey = KeyCode.W;
-    public KeyCode SKey = KeyCode.S;
-    public KeyCode AKey = KeyCode.A;
-    public KeyCode DKey = KeyCode.D;
+    public KeyCode upKey = KeyCode.UpArrow;
+    public KeyCode downKey = KeyCode.DownArrow;
+    public KeyCode leftKey = KeyCode.LeftArrow;
+    public KeyCode rightKey = KeyCode.RightArrow;
 
     private Rigidbody2D rb;
     private Vector2 movement;
@@ -26,19 +26,19 @@ public class PlayerMovement : MonoBehaviour
         movement.y = 0f;
 
         // 2. Check exactly which keys are being held down
-        if (Input.GetKey(WKey)) 
+        if (Input.GetKey(upKey)) 
         {
             movement.y = 1f;
         }
-        if (Input.GetKey(SKey)) 
+        if (Input.GetKey(downKey)) 
         {
             movement.y = -1f;
         }
-        if (Input.GetKey(DKey)) 
+        if (Input.GetKey(rightKey)) 
         {
             movement.x = 1f;
         }
-        if (Input.GetKey(AKey)) 
+        if (Input.GetKey(leftKey)) 
         {
             movement.x = -1f;
         }

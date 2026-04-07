@@ -6,8 +6,14 @@ public class BombPlacement : MonoBehaviour
     public GameObject bombPrefab;
     public Tilemap levelGrid;
 
+    // The Magic Fix! This lets us set the button in the Inspector.
+    [Header("Controls")]
+    public KeyCode placeBombKey = KeyCode.Space;
+
     public int maxBombs = 1;
-    private int currentBombsPlaced = 0;
+    
+    // Just one variable! Unity keeps a separate copy of this for each player.
+    private int currentBombsPlaced = 0; 
 
     private PlayerStats playerStats;
 
@@ -18,7 +24,8 @@ public class BombPlacement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        // Now it only listens to the specific key assigned in the Inspector!
+        if (Input.GetKeyDown(placeBombKey))
         {
             if (currentBombsPlaced >= maxBombs)
                 return;
@@ -36,11 +43,13 @@ public class BombPlacement : MonoBehaviour
 
                 if (playerStats != null)
                 {
+                    // Note: Ensure this matches the capitalization in your BombExplosion script (Force vs force)
                     bombExplosion.force = playerStats.explosionRange;
                     Debug.Log("Bomb spawned with range: " + bombExplosion.force);
                 }
             }
 
+            // Adds 1 to THIS specific player's bomb count
             currentBombsPlaced++;
         }
     }
