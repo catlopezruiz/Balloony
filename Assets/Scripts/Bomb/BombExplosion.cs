@@ -5,6 +5,14 @@ using System.Collections;
 public class BombExplosion : MonoBehaviour
 {
     public float timer = 2f;
+    public int force = 1;
+
+    public BombPlacement bombPlacer;
+
+    public GameObject speedPowerUpPrefab;
+    public GameObject rangePowerUpPrefab;
+    public GameObject bombPowerUpPrefab;
+    public float powerUpSpawnChance = 0.4f;
 
     private Tilemap destructibleTilemap;
 
@@ -30,11 +38,15 @@ public class BombExplosion : MonoBehaviour
 
         Vector2 bombPos = transform.position;
 
-        // ONLY check the 4 tiles directly next to the bomb
         CheckTile(bombPos + Vector2.up);
         CheckTile(bombPos + Vector2.down);
         CheckTile(bombPos + Vector2.left);
         CheckTile(bombPos + Vector2.right);
+
+        if (bombPlacer != null)
+        {
+            bombPlacer.BombDestroyed();
+        }
 
         Destroy(gameObject);
     }
@@ -47,15 +59,15 @@ public class BombExplosion : MonoBehaviour
         {
             if (hit.CompareTag("Barrier"))
             {
-                // Gray wall: stop here, do nothing
                 return;
             }
 
             if (hit.CompareTag("Destructible") && destructibleTilemap != null)
             {
-                // Orange block: break only this one block
                 Vector3Int cellPosition = destructibleTilemap.WorldToCell(checkPos);
                 destructibleTilemap.SetTile(cellPosition, null);
+
+                TrySpawnPowerUp(cellPosition);
                 return;
             }
 
@@ -63,6 +75,28 @@ public class BombExplosion : MonoBehaviour
             {
                 Debug.Log("Hit the Player!");
             }
+        }
+    }
+
+    private void TrySpawnPowerUp(Vector3Int cellPosition)
+    {
+        if (Random.value > powerUpSpawnChance)
+            return;
+
+        int randomChoice = Random.Range(0, 3);
+        GameObject prefabToSpawn = null;
+
+        if (randomChoice == 0)
+            prefabToSpawn = speedPowerUpPrefab;
+        else if (randomChoice == 1)
+            prefabToSpawn = rangePowerUpPrefab;
+        else
+            prefabToSpawn = bombPowerUpPrefab;
+
+        if (prefabToSpawn != null)
+        {
+            Vector3 spawnPos = destructibleTilemap.GetCellCenterWorld(cellPosition);
+            Instantiate(prefabToSpawn, spawnPos, Quaternion.identity);
         }
     }
 }

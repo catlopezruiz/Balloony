@@ -22,4 +22,9 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.linearVelocity = movement.normalized * moveSpeed;
     }
+
+    public void IncreaseSpeed(float amount)
+    {
+        moveSpeed += amount;
+    }
 }

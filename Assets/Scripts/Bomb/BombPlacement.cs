@@ -1,28 +1,57 @@
 using UnityEngine;
-using UnityEngine.Tilemaps; // We need this to talk to the grid!
+using UnityEngine.Tilemaps;
 
 public class BombPlacement : MonoBehaviour
 {
     public GameObject bombPrefab;
-    
-    // Add a slot to drag your Tilemap into, just like the explosion script
-    public Tilemap levelGrid; 
+    public Tilemap levelGrid;
+
+    public int maxBombs = 1;
+    private int currentBombsPlaced = 0;
+
+    private PlayerStats playerStats;
+
+    void Start()
+    {
+        playerStats = GetComponent<PlayerStats>();
+    }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            // 1. Get where the player is standing right now
+            if (currentBombsPlaced >= maxBombs)
+                return;
+
             Vector3 playerPos = transform.position;
-
-            // 2. Ask the Tilemap: "What cell coordinate is the player inside?"
             Vector3Int cellPosition = levelGrid.WorldToCell(playerPos);
-
-            // 3. Ask the Tilemap: "What is the exact world center of that specific cell?"
             Vector3 centerPos = levelGrid.GetCellCenterWorld(cellPosition);
 
-            // 4. Spawn the bomb at that perfect center point!
-            Instantiate(bombPrefab, centerPos, Quaternion.identity);
+            GameObject bomb = Instantiate(bombPrefab, centerPos, Quaternion.identity);
+
+            BombExplosion bombExplosion = bomb.GetComponent<BombExplosion>();
+            if (bombExplosion != null)
+            {
+                bombExplosion.bombPlacer = this;
+
+                if (playerStats != null)
+                {
+                    bombExplosion.force = playerStats.explosionRange;
+                    Debug.Log("Bomb spawned with range: " + bombExplosion.force);
+                }
+            }
+
+            currentBombsPlaced++;
+        }
+    }
+
+    public void BombDestroyed()
+    {
+        currentBombsPlaced--;
+
+        if (currentBombsPlaced < 0)
+        {
+            currentBombsPlaced = 0;
         }
     }
 }
