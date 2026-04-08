@@ -9,7 +9,8 @@ public class PlayerState : MonoBehaviour
     private bool isDead = false;
     private Coroutine stunCoroutine;
 
-    private PlayerMovement movementScript;
+    private PlayerMovement player1Movement;
+    private Player2Movement player2Movement;
     private BombPlacement bombPlacementScript;
     private SpriteRenderer spriteRenderer;
 
@@ -21,7 +22,8 @@ public class PlayerState : MonoBehaviour
 
     void Awake()
     {
-        movementScript = GetComponent<PlayerMovement>();
+        player1Movement = GetComponent<PlayerMovement>();
+        player2Movement = GetComponent<Player2Movement>();
         bombPlacementScript = GetComponent<BombPlacement>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -63,8 +65,11 @@ public class PlayerState : MonoBehaviour
     {
         isStunned = true;
 
-        if (movementScript != null)
-            movementScript.enabled = false;
+        if (player1Movement != null)
+            player1Movement.enabled = false;
+
+        if (player2Movement != null)
+            player2Movement.enabled = false;
 
         if (bombPlacementScript != null)
             bombPlacementScript.enabled = false;
@@ -72,25 +77,30 @@ public class PlayerState : MonoBehaviour
         if (spriteRenderer != null)
             spriteRenderer.color = stunnedColor;
 
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
+
         yield return new WaitForSeconds(stunDuration);
 
-        RecoverFromStun();
-    }
+        if (!isDead)
+        {
+            isStunned = false;
 
-    private void RecoverFromStun()
-    {
-        if (isDead) return;
+            if (player1Movement != null)
+                player1Movement.enabled = true;
 
-        isStunned = false;
+            if (player2Movement != null)
+                player2Movement.enabled = true;
 
-        if (movementScript != null)
-            movementScript.enabled = true;
+            if (bombPlacementScript != null)
+                bombPlacementScript.enabled = true;
 
-        if (bombPlacementScript != null)
-            bombPlacementScript.enabled = true;
-
-        if (spriteRenderer != null)
-            spriteRenderer.color = normalColor;
+            if (spriteRenderer != null)
+                spriteRenderer.color = normalColor;
+        }
     }
 
     public void Die()
@@ -101,15 +111,22 @@ public class PlayerState : MonoBehaviour
         isStunned = false;
 
         if (stunCoroutine != null)
-        {
             StopCoroutine(stunCoroutine);
-        }
 
-        if (movementScript != null)
-            movementScript.enabled = false;
+        if (player1Movement != null)
+            player1Movement.enabled = false;
+
+        if (player2Movement != null)
+            player2Movement.enabled = false;
 
         if (bombPlacementScript != null)
             bombPlacementScript.enabled = false;
+
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
 
         gameObject.SetActive(false);
     }
