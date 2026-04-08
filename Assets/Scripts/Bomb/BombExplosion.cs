@@ -63,6 +63,7 @@ public class BombExplosion : MonoBehaviour
         Vector2 bombPos = transform.position;
 
         SpawnExplosionVisual(centerExplosionPrefab, bombPos);
+        HitPlayersAtPosition(bombPos);
 
         ExplodeDirection(bombPos, Vector2.up);
         ExplodeDirection(bombPos, Vector2.down);
@@ -109,6 +110,8 @@ public class BombExplosion : MonoBehaviour
                 SpawnExplosionVisual(verticalExplosionPrefab, checkPos);
             }
 
+            HitPlayersAtPosition(checkPos);
+
             bool stopExplosion = CheckTile(checkPos);
 
             if (stopExplosion)
@@ -127,6 +130,24 @@ public class BombExplosion : MonoBehaviour
         }
     }
 
+    private void HitPlayersAtPosition(Vector2 checkPos)
+    {
+        Collider2D[] hits = Physics2D.OverlapBoxAll(checkPos, new Vector2(0.8f, 0.8f), 0f);
+
+        foreach (Collider2D hit in hits)
+        {
+            if (hit.CompareTag("Player"))
+            {
+                PlayerState playerState = hit.GetComponent<PlayerState>();
+
+                if (playerState != null)
+                {
+                    Debug.Log("Explosion stunned/hit: " + hit.name);
+                    playerState.HitByExplosion();
+            }
+        }
+    }
+}
     private bool CheckTile(Vector2 checkPos)
     {
         Collider2D[] hits = Physics2D.OverlapPointAll(checkPos);
@@ -145,11 +166,6 @@ public class BombExplosion : MonoBehaviour
 
                 TrySpawnPowerUp(cellPosition);
                 return true;
-            }
-
-            if (hit.CompareTag("Player"))
-            {
-                Debug.Log("Hit the Player!");
             }
         }
 

@@ -3290,6 +3290,8 @@ GameObject:
   - component: {fileID: 1127977731}
   - component: {fileID: 1127977730}
   - component: {fileID: 1127977738}
+  - component: {fileID: 1127977740}
+  - component: {fileID: 1127977739}
   m_Layer: 3
   m_Name: Player 2
   m_TagString: Player
@@ -3496,6 +3498,34 @@ MonoBehaviour:
   downKey: 274
   leftKey: 276
   rightKey: 275
+--- !u!114 &1127977739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127977729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e256e7d4568ec4195b13ed8886a798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerState
+  stunDuration: 5
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  stunnedColor: {r: 0, g: 1, b: 1, a: 1}
+  explosionHitCooldown: 0.15
+--- !u!114 &1127977740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127977729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2e7dd0c44d92b43a9c9f8af25a5f86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerTouchKill
 --- !u!1 &1146777265
 GameObject:
   m_ObjectHideFlags: 0
@@ -3559,6 +3589,8 @@ GameObject:
   - component: {fileID: 1800941426}
   - component: {fileID: 1800941427}
   - component: {fileID: 1800941428}
+  - component: {fileID: 1800941429}
+  - component: {fileID: 1800941430}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -3768,6 +3800,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
   explosionRange: 1
   maxBombs: 1
+--- !u!114 &1800941429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800941420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2e7dd0c44d92b43a9c9f8af25a5f86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerTouchKill
+--- !u!114 &1800941430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800941420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e256e7d4568ec4195b13ed8886a798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerState
+  stunDuration: 5
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  stunnedColor: {r: 0, g: 1, b: 1, a: 1}
+  explosionHitCooldown: 0.15
 --- !u!1 &1940956572
 GameObject:
   m_ObjectHideFlags: 0
