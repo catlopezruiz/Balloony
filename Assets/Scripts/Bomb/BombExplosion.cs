@@ -57,10 +57,10 @@ public class BombExplosion : MonoBehaviour
 
         Vector2 bombPos = transform.position;
 
-        CheckTile(bombPos + Vector2.up);
-        CheckTile(bombPos + Vector2.down);
-        CheckTile(bombPos + Vector2.left);
-        CheckTile(bombPos + Vector2.right);
+        ExplodeDirection(bombPos, Vector2.up);
+        ExplodeDirection(bombPos, Vector2.down);
+        ExplodeDirection(bombPos, Vector2.left);
+        ExplodeDirection(bombPos, Vector2.right);
 
         if (bombPlacer != null)
         {
@@ -70,7 +70,22 @@ public class BombExplosion : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void CheckTile(Vector2 checkPos)
+    private void ExplodeDirection(Vector2 origin, Vector2 direction)
+    {
+        for (int i = 1; i <= force; i++)
+        {
+            Vector2 checkPos = origin + direction * i;
+
+            bool stopExplosion = CheckTile(checkPos);
+
+            if (stopExplosion)
+            {
+                break;
+            }
+        }
+    }
+
+    private bool CheckTile(Vector2 checkPos)
     {
         Collider2D[] hits = Physics2D.OverlapPointAll(checkPos);
 
@@ -78,7 +93,7 @@ public class BombExplosion : MonoBehaviour
         {
             if (hit.CompareTag("Barrier"))
             {
-                return;
+                return true;
             }
 
             if (hit.CompareTag("Destructible") && destructibleTilemap != null)
@@ -87,7 +102,7 @@ public class BombExplosion : MonoBehaviour
                 destructibleTilemap.SetTile(cellPosition, null);
 
                 TrySpawnPowerUp(cellPosition);
-                return;
+                return true;
             }
 
             if (hit.CompareTag("Player"))
@@ -95,6 +110,8 @@ public class BombExplosion : MonoBehaviour
                 Debug.Log("Hit the Player!");
             }
         }
+
+        return false;
     }
 
     private void TrySpawnPowerUp(Vector3Int cellPosition)

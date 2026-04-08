@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Barrier
   - Destructible
+  - Undefined
+  - SpeedPowerUp
+  - BombPowerUp
+  - RangePowerUp
   layers:
   - Default
   - TransparentFX
