@@ -87,7 +87,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -255167383455267363, guid: 8b291a6c2f6645742884d6eba710a03e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -179,6 +179,9 @@ MonoBehaviour:
   rangePowerUpPrefab: {fileID: 7915096890380804103, guid: a8bf30a3abaab33489851c6de47be413, type: 3}
   bombPowerUpPrefab: {fileID: 5104268357670393844, guid: 371749153dc450e48a72d7803bf9a85b, type: 3}
   powerUpSpawnChance: 0.4
+  normalBalloonSprite: {fileID: -255167383455267363, guid: 8b291a6c2f6645742884d6eba710a03e, type: 3}
+  poppedBalloonSprite: {fileID: 21300000, guid: 3778914f2f4a224458a3346e9a9f583c, type: 3}
+  poppedDuration: 0.15
 --- !u!114 &5648447588367305950
 MonoBehaviour:
   m_ObjectHideFlags: 0

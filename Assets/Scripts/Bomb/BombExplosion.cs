@@ -14,7 +14,12 @@ public class BombExplosion : MonoBehaviour
     public GameObject bombPowerUpPrefab;
     public float powerUpSpawnChance = 0.4f;
 
+    public Sprite normalBalloonSprite;
+    public Sprite poppedBalloonSprite;
+    public float poppedDuration = 0.15f;
+
     private Tilemap destructibleTilemap;
+    private SpriteRenderer spriteRenderer;
 
     void Start()
     {
@@ -29,12 +34,26 @@ public class BombExplosion : MonoBehaviour
             Debug.LogError("Could not find a Tilemap tagged 'Destructible'!");
         }
 
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (spriteRenderer != null && normalBalloonSprite != null)
+        {
+            spriteRenderer.sprite = normalBalloonSprite;
+        }
+
         StartCoroutine(ExplodeAfterTimer());
     }
 
     private IEnumerator ExplodeAfterTimer()
     {
         yield return new WaitForSeconds(timer);
+
+        if (spriteRenderer != null && poppedBalloonSprite != null)
+        {
+            spriteRenderer.sprite = poppedBalloonSprite;
+        }
+
+        yield return new WaitForSeconds(poppedDuration);
 
         Vector2 bombPos = transform.position;
 
