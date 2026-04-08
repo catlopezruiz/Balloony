@@ -182,6 +182,10 @@ MonoBehaviour:
   normalBalloonSprite: {fileID: -255167383455267363, guid: 8b291a6c2f6645742884d6eba710a03e, type: 3}
   poppedBalloonSprite: {fileID: 21300000, guid: 3778914f2f4a224458a3346e9a9f583c, type: 3}
   poppedDuration: 0.15
+  centerExplosionPrefab: {fileID: 4325793083714556233, guid: 9cb6593778b60154994500a8340e3f73, type: 3}
+  horizontalExplosionPrefab: {fileID: 4325793083714556233, guid: 9cb6593778b60154994500a8340e3f73, type: 3}
+  verticalExplosionPrefab: {fileID: 4325793083714556233, guid: 9cb6593778b60154994500a8340e3f73, type: 3}
+  explosionVisualDuration: 0.2
 --- !u!114 &5648447588367305950
 MonoBehaviour:
   m_ObjectHideFlags: 0

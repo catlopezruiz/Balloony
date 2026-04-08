@@ -18,6 +18,11 @@ public class BombExplosion : MonoBehaviour
     public Sprite poppedBalloonSprite;
     public float poppedDuration = 0.15f;
 
+    public GameObject centerExplosionPrefab;
+    public GameObject horizontalExplosionPrefab;
+    public GameObject verticalExplosionPrefab;
+    public float explosionVisualDuration = 0.4f;
+
     private Tilemap destructibleTilemap;
     private SpriteRenderer spriteRenderer;
 
@@ -57,6 +62,8 @@ public class BombExplosion : MonoBehaviour
 
         Vector2 bombPos = transform.position;
 
+        SpawnExplosionVisual(centerExplosionPrefab, bombPos);
+
         ExplodeDirection(bombPos, Vector2.up);
         ExplodeDirection(bombPos, Vector2.down);
         ExplodeDirection(bombPos, Vector2.left);
@@ -76,12 +83,47 @@ public class BombExplosion : MonoBehaviour
         {
             Vector2 checkPos = origin + direction * i;
 
+            Collider2D[] hits = Physics2D.OverlapPointAll(checkPos);
+            bool blockedByBarrier = false;
+
+            foreach (Collider2D hit in hits)
+            {
+                if (hit.CompareTag("Barrier"))
+                {
+                    blockedByBarrier = true;
+                    break;
+                }
+            }
+
+            if (blockedByBarrier)
+            {
+                break;
+            }
+
+            if (direction == Vector2.left || direction == Vector2.right)
+            {
+                SpawnExplosionVisual(horizontalExplosionPrefab, checkPos);
+            }
+            else
+            {
+                SpawnExplosionVisual(verticalExplosionPrefab, checkPos);
+            }
+
             bool stopExplosion = CheckTile(checkPos);
 
             if (stopExplosion)
             {
                 break;
             }
+        }
+    }
+
+    private void SpawnExplosionVisual(GameObject prefab, Vector2 position)
+    {
+        if (prefab != null)
+        {
+            GameObject splash = Instantiate(prefab, position, Quaternion.identity);
+            Destroy(splash, explosionVisualDuration);
         }
     }
 
