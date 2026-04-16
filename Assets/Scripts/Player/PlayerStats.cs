@@ -20,13 +20,22 @@ public class PlayerStats : MonoBehaviour
     }
 
     public void IncreaseSpeed(float amount)
+{
+    PlayerMovement p1 = GetComponent<PlayerMovement>();
+    Player2Movement p2 = GetComponent<Player2Movement>();
+
+    if (p1 != null)
     {
-        if (playerMovement != null)
-        {
-            playerMovement.moveSpeed += amount;
-            Debug.Log("Speed is now: " + playerMovement.moveSpeed);
-        }
+        p1.moveSpeed += amount;
+        Debug.Log("P1 Speed is now: " + p1.moveSpeed);
     }
+
+    if (p2 != null)
+    {
+        p2.moveSpeed += amount;
+        Debug.Log("P2 Speed is now: " + p2.moveSpeed);
+    }
+}
 
     public void IncreaseRange(int amount)
     {
