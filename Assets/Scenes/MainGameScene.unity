@@ -3392,6 +3392,10 @@ MonoBehaviour:
   bombPrefab: {fileID: 8762266103229396619, guid: d4db01c2857c1304ea812a54824c8acf, type: 3}
   levelGrid: {fileID: 1940956575}
   placeBombKey: 256
+  bombLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  bombCheckRadius: 0.2
   maxBombs: 1
 --- !u!58 &1127977734
 CircleCollider2D:
@@ -3957,6 +3961,10 @@ MonoBehaviour:
   bombPrefab: {fileID: 8762266103229396619, guid: d4db01c2857c1304ea812a54824c8acf, type: 3}
   levelGrid: {fileID: 1940956575}
   placeBombKey: 32
+  bombLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  bombCheckRadius: 0.2
   maxBombs: 1
 --- !u!114 &1800941427
 MonoBehaviour:

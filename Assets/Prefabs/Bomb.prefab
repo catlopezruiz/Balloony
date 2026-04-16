@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2670989328070144929}
   - component: {fileID: -4013672961243426037}
   - component: {fileID: 5648447588367305950}
-  - component: {fileID: 8815598115727786824}
   - component: {fileID: 7440758665662601612}
   m_Layer: 6
   m_Name: Bomb
@@ -187,18 +186,6 @@ MonoBehaviour:
   verticalExplosionPrefab: {fileID: 4325793083714556233, guid: 9cb6593778b60154994500a8340e3f73, type: 3}
   explosionVisualDuration: 0.2
 --- !u!114 &5648447588367305950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8762266103229396619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c79cb9eb0e598754bb07f29088766157, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BombCollisionHandler
---- !u!114 &8815598115727786824
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
