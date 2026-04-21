@@ -19,9 +19,17 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
 
+    // ✅ ADD THIS
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        // ✅ ADD THESE
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         // Initialize UI
         if (statsUI != null)
@@ -39,11 +47,30 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(SKey)) movement.y = -1f;
         if (Input.GetKey(DKey)) movement.x = 1f;
         if (Input.GetKey(AKey)) movement.x = -1f;
+
+        movement = movement.normalized;
+
+        // ✅ ANIMATION LOGIC
+        bool isMoving = movement.sqrMagnitude > 0.01f;
+
+        if (animator != null)
+        {
+            animator.SetBool("isMoving", isMoving);
+        }
+
+        // ✅ OPTIONAL: flip sprite left/right
+        if (spriteRenderer != null)
+        {
+            if (movement.x < 0)
+                spriteRenderer.flipX = true;
+            else if (movement.x > 0)
+                spriteRenderer.flipX = false;
+        }
     }
 
     void FixedUpdate()
     {
-        rb.linearVelocity = movement.normalized * moveSpeed;
+        rb.linearVelocity = movement * moveSpeed;
     }
 
     // SPEED POWERUP
@@ -78,22 +105,23 @@ public class PlayerMovement : MonoBehaviour
             statsUI.SetStats((int)moveSpeed, maxBombs, bombRange);
         }
     }
+
     private void OnTriggerEnter2D(Collider2D other)
-{
-    if (other.CompareTag("SpeedPowerUp"))
     {
-        IncreaseSpeed(1f);
-        Destroy(other.gameObject);
+        if (other.CompareTag("SpeedPowerUp"))
+        {
+            IncreaseSpeed(1f);
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("BombPowerUp"))
+        {
+            IncreaseBombs(1);
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("RangePowerUp"))
+        {
+            IncreaseRange(1);
+            Destroy(other.gameObject);
+        }
     }
-    else if (other.CompareTag("BombPowerUp"))
-    {
-        IncreaseBombs(1);
-        Destroy(other.gameObject);
-    }
-    else if (other.CompareTag("RangePowerUp"))
-    {
-        IncreaseRange(1);
-        Destroy(other.gameObject);
-    }
-}
 }
