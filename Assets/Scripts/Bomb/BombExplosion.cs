@@ -9,6 +9,8 @@ public class BombExplosion : MonoBehaviour
 
     public BombPlacement bombPlacer;
 
+    public AIbehaviour AIbehaviour;
+
     public GameObject speedPowerUpPrefab;
     public GameObject rangePowerUpPrefab;
     public GameObject bombPowerUpPrefab;
@@ -138,16 +140,24 @@ public class BombExplosion : MonoBehaviour
         {
             if (hit.CompareTag("Player"))
             {
+                // Check if it hit a human player
                 PlayerState playerState = hit.GetComponent<PlayerState>();
-
                 if (playerState != null)
                 {
-                    Debug.Log("Explosion stunned/hit: " + hit.name);
+                    Debug.Log("Explosion stunned/hit Human: " + hit.name);
                     playerState.HitByExplosion();
+                }
+
+                // Check if it hit our new AI
+                AIbehaviour ai = hit.GetComponent<AIbehaviour>();
+                if (ai != null)
+                {
+                    Debug.Log("Explosion stunned AI: " + hit.name);
+                    ai.HitByExplosion();
+                }
             }
         }
     }
-}
     private bool CheckTile(Vector2 checkPos)
     {
         Collider2D[] hits = Physics2D.OverlapPointAll(checkPos);
