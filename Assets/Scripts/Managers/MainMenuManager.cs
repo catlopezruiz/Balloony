@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class MainMenuManager : MonoBehaviour
     public GameObject localPlayPanel;
 
     public GameObject comingSoonText;
+
+    public string gameSceneName = "MainGameScene";
 
     void Start()
     {
@@ -65,5 +68,15 @@ public class MainMenuManager : MonoBehaviour
     {
         if (comingSoonText != null)
             comingSoonText.SetActive(true);
+    }
+
+  
+    public void StartVsAI(int aiCount)
+    {
+        PlayerPrefs.SetString("GameMode", "VS_AI");
+        PlayerPrefs.SetInt("AICount", aiCount);
+        PlayerPrefs.Save();
+
+        SceneManager.LoadScene(gameSceneName);
     }
 }
