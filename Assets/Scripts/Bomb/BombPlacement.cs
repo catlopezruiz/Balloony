@@ -35,7 +35,7 @@ public class BombPlacement : MonoBehaviour
         }
     }
 
-    void TryPlaceBomb()
+    public void TryPlaceBomb()
     {
         if (currentBombsPlaced >= maxBombs)
             return;
@@ -66,6 +66,10 @@ public class BombPlacement : MonoBehaviour
         currentBombsPlaced++;
         nextBombTime = Time.time + bombHoldDelay;
     }
+    public void PlaceBomb()
+{
+    TryPlaceBomb();
+}
 
     public void BombDestroyed()
     {
