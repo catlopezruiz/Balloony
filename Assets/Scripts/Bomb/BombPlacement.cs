@@ -25,6 +25,21 @@ public class BombPlacement : MonoBehaviour
     void Start()
     {
         playerStats = GetComponent<PlayerStats>();
+
+        // 🔥 AUTO-FIND GRID (fix for prefab issue)
+        if (levelGrid == null)
+        {
+            GameObject gridObject = GameObject.FindGameObjectWithTag("Grid");
+
+            if (gridObject != null)
+            {
+                levelGrid = gridObject.GetComponent<Tilemap>();
+            }
+            else
+            {
+                Debug.LogError("Grid not found! Make sure your Walkable tilemap is tagged 'Grid'.");
+            }
+        }
     }
 
     void Update()
@@ -37,6 +52,13 @@ public class BombPlacement : MonoBehaviour
 
     public void TryPlaceBomb()
     {
+        // 🔥 SAFETY CHECK
+        if (levelGrid == null)
+        {
+            Debug.LogError("Level Grid is missing. Cannot place bomb.");
+            return;
+        }
+
         if (currentBombsPlaced >= maxBombs)
             return;
 
@@ -66,10 +88,11 @@ public class BombPlacement : MonoBehaviour
         currentBombsPlaced++;
         nextBombTime = Time.time + bombHoldDelay;
     }
+
     public void PlaceBomb()
-{
-    TryPlaceBomb();
-}
+    {
+        TryPlaceBomb();
+    }
 
     public void BombDestroyed()
     {
