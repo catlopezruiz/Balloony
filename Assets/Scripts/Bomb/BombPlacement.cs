@@ -22,25 +22,44 @@ public class BombPlacement : MonoBehaviour
     private float nextBombTime = 0f;
     private PlayerStats playerStats;
 
-    void Start()
+void Start()
+{
+    playerStats = GetComponent<PlayerStats>();
+
+    if (levelGrid == null)
     {
-        playerStats = GetComponent<PlayerStats>();
+        GameObject gridObject = GameObject.FindGameObjectWithTag("Grid");
 
-        // 🔥 AUTO-FIND GRID (fix for prefab issue)
-        if (levelGrid == null)
+        if (gridObject != null)
         {
-            GameObject gridObject = GameObject.FindGameObjectWithTag("Grid");
+            levelGrid = gridObject.GetComponent<Tilemap>();
 
-            if (gridObject != null)
+            if (levelGrid == null)
             {
-                levelGrid = gridObject.GetComponent<Tilemap>();
-            }
-            else
-            {
-                Debug.LogError("Grid not found! Make sure your Walkable tilemap is tagged 'Grid'.");
+                levelGrid = gridObject.GetComponentInChildren<Tilemap>();
             }
         }
     }
+
+    if (levelGrid == null)
+    {
+        Tilemap[] tilemaps = FindObjectsByType<Tilemap>(FindObjectsSortMode.None);
+
+        foreach (Tilemap tilemap in tilemaps)
+        {
+            if (tilemap.gameObject.name == "Walkable")
+            {
+                levelGrid = tilemap;
+                break;
+            }
+        }
+    }
+
+    if (levelGrid == null)
+    {
+        Debug.LogError("Level Grid was not found. Make sure the Walkable Tilemap exists and is named Walkable.");
+    }
+}
 
     void Update()
     {
