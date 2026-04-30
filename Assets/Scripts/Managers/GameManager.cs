@@ -17,28 +17,32 @@ public class GameManager : MonoBehaviour
     private bool gameEnded = false;
 
     void Start()
-{
-    SetupGame();
+    {
+        SetupGame();
 
-    // Wait one frame so objects spawn first
-    Invoke(nameof(FindPlayers), 0.1f);
+        Invoke(nameof(FindPlayers), 0.1f);
 
-    if (winText != null)
-        winText.gameObject.SetActive(false);
-}
+        if (winText != null)
+            winText.gameObject.SetActive(false);
+    }
 
-void FindPlayers()
-{
-    players = FindObjectsByType<PlayerState>(FindObjectsSortMode.None);
-}
+    void FindPlayers()
+    {
+        players = FindObjectsByType<PlayerState>(FindObjectsSortMode.None);
+        Debug.Log("Found " + players.Length + " players for win detection.");
+    }
 
     void SetupGame()
     {
         string gameMode = PlayerPrefs.GetString("GameMode", "LOCAL");
 
+        Debug.Log("Game Mode: " + gameMode);
+
         if (gameMode == "VS_AI")
         {
             int aiCount = PlayerPrefs.GetInt("AICount", 1);
+
+            Debug.Log("Spawning 1 player and " + aiCount + " AI.");
 
             SpawnPlayer(playerSpawns[0]);
 
@@ -51,28 +55,31 @@ void FindPlayers()
         {
             int playerCount = PlayerPrefs.GetInt("PlayerCount", 2);
 
+            Debug.Log("Spawning " + playerCount + " local players.");
+
             for (int i = 0; i < playerCount && i < playerSpawns.Length; i++)
             {
                 SpawnPlayer(playerSpawns[i]);
             }
         }
-
-        players = FindObjectsByType<PlayerState>(FindObjectsSortMode.None);
     }
 
     void SpawnPlayer(Transform spawnPoint)
     {
-        Instantiate(playerPrefab, spawnPoint.position, Quaternion.identity);
+        GameObject player = Instantiate(playerPrefab, spawnPoint.position, Quaternion.identity);
+        Debug.Log("Spawned Player at " + spawnPoint.name);
     }
 
     void SpawnAI(Transform spawnPoint)
     {
-        Instantiate(aiPrefab, spawnPoint.position, Quaternion.identity);
+        GameObject ai = Instantiate(aiPrefab, spawnPoint.position, Quaternion.identity);
+        Debug.Log("Spawned AI at " + spawnPoint.name);
     }
 
     void Update()
     {
         if (gameEnded) return;
+        if (players == null || players.Length == 0) return;
 
         int aliveCount = 0;
         PlayerState lastAlive = null;
