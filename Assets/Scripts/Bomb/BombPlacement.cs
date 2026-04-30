@@ -107,6 +107,23 @@ void Start()
         currentBombsPlaced++;
         nextBombTime = Time.time + bombHoldDelay;
     }
+    public void PlaceBombDirectly()
+{
+    if (currentBombsPlaced >= maxBombs)
+        return;
+
+    Vector3Int cellPosition = levelGrid.WorldToCell(transform.position);
+    Vector3 spawnPosition = levelGrid.GetCellCenterWorld(cellPosition);
+
+    // Prevent stacking bombs
+    Collider2D hit = Physics2D.OverlapCircle(spawnPosition, bombCheckRadius, bombLayer);
+    if (hit != null)
+        return;
+
+    Instantiate(bombPrefab, spawnPosition, Quaternion.identity);
+
+    currentBombsPlaced++;
+}
 
     public void PlaceBomb()
     {

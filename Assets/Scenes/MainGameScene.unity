@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 92695489}
   - component: {fileID: 92695488}
   - component: {fileID: 92695490}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Destructible
   m_TagString: Destructible
   m_Icon: {fileID: 0}
@@ -1554,7 +1554,7 @@ GameObject:
   - component: {fileID: 737207674}
   - component: {fileID: 737207673}
   - component: {fileID: 737207675}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Barrier
   m_TagString: Barrier
   m_Icon: {fileID: 0}
