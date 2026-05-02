@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
 
             Debug.Log("Spawning 1 player and " + aiCount + " AI.");
 
-            SpawnPlayer(playerSpawns[0]);
+            SpawnPlayer(playerSpawns[0], 1);
 
             for (int i = 0; i < aiCount && i < aiSpawns.Length; i++)
             {
@@ -55,19 +55,82 @@ public class GameManager : MonoBehaviour
         {
             int playerCount = PlayerPrefs.GetInt("PlayerCount", 2);
 
-            Debug.Log("Spawning " + playerCount + " local players.");
+            Debug.Log("Requested local players: " + playerCount);
+            Debug.Log("Player spawns available: " + playerSpawns.Length);
 
-            for (int i = 0; i < playerCount && i < playerSpawns.Length; i++)
+            int amountToSpawn = Mathf.Min(playerCount, playerSpawns.Length);
+
+            for (int i = 0; i < amountToSpawn; i++)
             {
-                SpawnPlayer(playerSpawns[i]);
+                SpawnPlayer(playerSpawns[i], i + 1);
+            }
+
+            if (playerCount > playerSpawns.Length)
+            {
+                Debug.LogWarning("Not enough spawn points! Add more Player Spawns in the GameManager Inspector.");
             }
         }
     }
 
-    void SpawnPlayer(Transform spawnPoint)
+    void SpawnPlayer(Transform spawnPoint, int playerNumber)
     {
         GameObject player = Instantiate(playerPrefab, spawnPoint.position, Quaternion.identity);
-        Debug.Log("Spawned Player at " + spawnPoint.name);
+        player.name = "Player " + playerNumber;
+
+        AssignLocalControls(player, playerNumber);
+
+        Debug.Log("Spawned Player " + playerNumber + " at " + spawnPoint.name);
+    }
+
+    void AssignLocalControls(GameObject player, int playerNumber)
+    {
+        PlayerMovement movement = player.GetComponent<PlayerMovement>();
+        BombPlacement bombPlacement = player.GetComponent<BombPlacement>();
+
+        if (movement == null)
+        {
+            Debug.LogWarning(player.name + " is missing PlayerMovement.");
+            return;
+        }
+
+        if (bombPlacement == null)
+        {
+            Debug.LogWarning(player.name + " is missing BombPlacement.");
+            return;
+        }
+
+        if (playerNumber == 1)
+        {
+            movement.upKey = KeyCode.W;
+            movement.downKey = KeyCode.S;
+            movement.leftKey = KeyCode.A;
+            movement.rightKey = KeyCode.D;
+            bombPlacement.placeBombKey = KeyCode.Space;
+        }
+        else if (playerNumber == 2)
+        {
+            movement.upKey = KeyCode.UpArrow;
+            movement.downKey = KeyCode.DownArrow;
+            movement.leftKey = KeyCode.LeftArrow;
+            movement.rightKey = KeyCode.RightArrow;
+            bombPlacement.placeBombKey = KeyCode.RightShift;
+        }
+        else if (playerNumber == 3)
+        {
+            movement.upKey = KeyCode.I;
+            movement.downKey = KeyCode.K;
+            movement.leftKey = KeyCode.J;
+            movement.rightKey = KeyCode.L;
+            bombPlacement.placeBombKey = KeyCode.U;
+        }
+        else if (playerNumber == 4)
+        {
+            movement.upKey = KeyCode.T;
+            movement.downKey = KeyCode.G;
+            movement.leftKey = KeyCode.F;
+            movement.rightKey = KeyCode.H;
+            bombPlacement.placeBombKey = KeyCode.Y;
+        }
     }
 
     void SpawnAI(Transform spawnPoint)
