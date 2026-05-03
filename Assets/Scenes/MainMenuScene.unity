@@ -237,6 +237,7 @@ GameObject:
   - component: {fileID: 117427595}
   - component: {fileID: 117427594}
   - component: {fileID: 117427593}
+  - component: {fileID: 117427596}
   m_Layer: 5
   m_Name: Player 4 up
   m_TagString: Untagged
@@ -307,7 +308,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 117427594}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 117427596}
+        m_TargetAssemblyTypeName: KeybindButton, Assembly-CSharp
+        m_MethodName: StartRebind
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &117427594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,6 +359,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 117427591}
   m_CullTransparentMesh: 1
+--- !u!114 &117427596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117427591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83f4a76f84f6e84b8bc87bfac9d886c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeybindButton
+  playerNumber: 4
+  action: up
+  buttonText: {fileID: 453945787}
+  fixedKey: 0
 --- !u!1 &148297125
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,6 +430,7 @@ MonoBehaviour:
   playerNumber: 1
   action: left
   buttonText: {fileID: 2109459267}
+  fixedKey: 0
 --- !u!114 &148297128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,7 +474,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 148297129}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 148297127}
+        m_TargetAssemblyTypeName: KeybindButton, Assembly-CSharp
+        m_MethodName: StartRebind
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &148297129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -704,7 +746,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1067402835}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-        m_MethodName: StartLocalPlay
+        m_MethodName: ShowKeybindPanel
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1038,6 +1080,7 @@ GameObject:
   - component: {fileID: 299980029}
   - component: {fileID: 299980028}
   - component: {fileID: 299980027}
+  - component: {fileID: 299980030}
   m_Layer: 5
   m_Name: Player 2 left
   m_TagString: Untagged
@@ -1108,7 +1151,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 299980028}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 299980030}
+        m_TargetAssemblyTypeName: KeybindButton, Assembly-CSharp
+        m_MethodName: StartRebind
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &299980028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1147,6 +1202,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299980025}
   m_CullTransparentMesh: 1
+--- !u!114 &299980030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299980025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83f4a76f84f6e84b8bc87bfac9d886c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeybindButton
+  playerNumber: 2
+  action: left
+  buttonText: {fileID: 309303092}
+  fixedKey: 0
 --- !u!1 &309303090
 GameObject:
   m_ObjectHideFlags: 0
@@ -1428,6 +1499,7 @@ GameObject:
   - component: {fileID: 349175536}
   - component: {fileID: 349175535}
   - component: {fileID: 349175534}
+  - component: {fileID: 349175537}
   m_Layer: 5
   m_Name: Player 3 up
   m_TagString: Untagged
@@ -1498,7 +1570,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 349175535}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 349175537}
+        m_TargetAssemblyTypeName: KeybindButton, Assembly-CSharp
+        m_MethodName: StartRebind
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &349175535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1537,6 +1621,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 349175532}
   m_CullTransparentMesh: 1
+--- !u!114 &349175537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349175532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83f4a76f84f6e84b8bc87bfac9d886c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeybindButton
+  playerNumber: 3
+  action: up
+  buttonText: {fileID: 693549851}
+  fixedKey: 0
 --- !u!1 &390742561
 GameObject:
   m_ObjectHideFlags: 0
@@ -1650,6 +1750,7 @@ GameObject:
   - component: {fileID: 397666869}
   - component: {fileID: 397666868}
   - component: {fileID: 397666867}
+  - component: {fileID: 397666870}
   m_Layer: 5
   m_Name: Player 3 right
   m_TagString: Untagged
@@ -1720,7 +1821,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 397666868}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 397666870}
+        m_TargetAssemblyTypeName: KeybindButton, Assembly-CSharp
+        m_MethodName: StartRebind
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &397666868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1759,6 +1872,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397666865}
   m_CullTransparentMesh: 1
+--- !u!114 &397666870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397666865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83f4a76f84f6e84b8bc87bfac9d886c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeybindButton
+  playerNumber: 3
+  action: right
+  buttonText: {fileID: 822386115}
+  fixedKey: 0
 --- !u!1 &408277234
 GameObject:
   m_ObjectHideFlags: 0
@@ -1843,7 +1972,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1067402835}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-        m_MethodName: StartLocalPlay
+        m_MethodName: ShowKeybindPanel
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2451,6 +2580,7 @@ GameObject:
   - component: {fileID: 463489107}
   - component: {fileID: 463489106}
   - component: {fileID: 463489105}
+  - component: {fileID: 463489108}
   m_Layer: 5
   m_Name: Player 2 right
   m_TagString: Untagged
@@ -2521,7 +2651,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 463489106}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 463489108}
+        m_TargetAssemblyTypeName: KeybindButton, Assembly-CSharp
+        m_MethodName: StartRebind
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &463489106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2560,6 +2702,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 463489103}
   m_CullTransparentMesh: 1
+--- !u!114 &463489108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463489103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83f4a76f84f6e84b8bc87bfac9d886c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeybindButton
+  playerNumber: 2
+  action: right
+  buttonText: {fileID: 1582353634}
+  fixedKey: 0
 --- !u!1 &506643124
 GameObject:
   m_ObjectHideFlags: 0
@@ -3485,6 +3643,7 @@ GameObject:
   - component: {fileID: 630218804}
   - component: {fileID: 630218803}
   - component: {fileID: 630218802}
+  - component: {fileID: 630218805}
   m_Layer: 5
   m_Name: Player 2 up
   m_TagString: Untagged
@@ -3555,7 +3714,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 630218803}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 630218805}
+        m_TargetAssemblyTypeName: KeybindButton, Assembly-CSharp
+        m_MethodName: StartRebind
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &630218803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3594,6 +3765,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630218800}
   m_CullTransparentMesh: 1
+--- !u!114 &630218805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630218800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83f4a76f84f6e84b8bc87bfac9d886c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeybindButton
+  playerNumber: 2
+  action: up
+  buttonText: {fileID: 1045282206}
+  fixedKey: 0
 --- !u!1 &674671444
 GameObject:
   m_ObjectHideFlags: 0
@@ -3606,6 +3793,7 @@ GameObject:
   - component: {fileID: 674671448}
   - component: {fileID: 674671447}
   - component: {fileID: 674671446}
+  - component: {fileID: 674671449}
   m_Layer: 5
   m_Name: Player 4 left
   m_TagString: Untagged
@@ -3676,7 +3864,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 674671447}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 674671449}
+        m_TargetAssemblyTypeName: KeybindButton, Assembly-CSharp
+        m_MethodName: StartRebind
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &674671447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3715,6 +3915,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 674671444}
   m_CullTransparentMesh: 1
+--- !u!114 &674671449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674671444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83f4a76f84f6e84b8bc87bfac9d886c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeybindButton
+  playerNumber: 4
+  action: left
+  buttonText: {fileID: 272277676}
+  fixedKey: 0
 --- !u!1 &693549849
 GameObject:
   m_ObjectHideFlags: 0
@@ -3907,6 +4123,7 @@ MonoBehaviour:
   playerNumber: 1
   action: down
   buttonText: {fileID: 2053387106}
+  fixedKey: 0
 --- !u!114 &731943204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3950,7 +4167,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 731943205}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 731943203}
+        m_TargetAssemblyTypeName: KeybindButton, Assembly-CSharp
+        m_MethodName: StartRebind
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &731943205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4001,12 +4230,12 @@ GameObject:
   - component: {fileID: 751303972}
   - component: {fileID: 751303971}
   m_Layer: 5
-  m_Name: Local Players
+  m_Name: Keybind Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &751303970
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4045,6 +4274,8 @@ RectTransform:
   - {fileID: 299980026}
   - {fileID: 463489104}
   - {fileID: 1609272539}
+  - {fileID: 1489446203}
+  - {fileID: 1185749104}
   m_Father: {fileID: 41294517}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4065,7 +4296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.06666667, g: 0.06666667, b: 0.10196079, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4102,6 +4333,7 @@ GameObject:
   - component: {fileID: 760496391}
   - component: {fileID: 760496390}
   - component: {fileID: 760496389}
+  - component: {fileID: 760496392}
   m_Layer: 5
   m_Name: Player 3 down
   m_TagString: Untagged
@@ -4172,7 +4404,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 760496390}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 760496392}
+        m_TargetAssemblyTypeName: KeybindButton, Assembly-CSharp
+        m_MethodName: StartRebind
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &760496390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4211,6 +4455,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 760496387}
   m_CullTransparentMesh: 1
+--- !u!114 &760496392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760496387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83f4a76f84f6e84b8bc87bfac9d886c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeybindButton
+  playerNumber: 3
+  action: down
+  buttonText: {fileID: 624875001}
+  fixedKey: 0
 --- !u!1 &818003131
 GameObject:
   m_ObjectHideFlags: 0
@@ -4223,6 +4483,7 @@ GameObject:
   - component: {fileID: 818003135}
   - component: {fileID: 818003134}
   - component: {fileID: 818003133}
+  - component: {fileID: 818003136}
   m_Layer: 5
   m_Name: Player 3 left
   m_TagString: Untagged
@@ -4293,7 +4554,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 818003134}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 818003136}
+        m_TargetAssemblyTypeName: KeybindButton, Assembly-CSharp
+        m_MethodName: StartRebind
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &818003134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4332,6 +4605,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818003131}
   m_CullTransparentMesh: 1
+--- !u!114 &818003136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818003131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83f4a76f84f6e84b8bc87bfac9d886c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeybindButton
+  playerNumber: 3
+  action: left
+  buttonText: {fileID: 1636610379}
+  fixedKey: 0
 --- !u!1 &822386113
 GameObject:
   m_ObjectHideFlags: 0
@@ -4656,6 +4945,7 @@ MonoBehaviour:
   playerNumber: 1
   action: Up
   buttonText: {fileID: 149075673}
+  fixedKey: 0
 --- !u!114 &908534166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5147,6 +5437,7 @@ GameObject:
   - component: {fileID: 1059014098}
   - component: {fileID: 1059014097}
   - component: {fileID: 1059014096}
+  - component: {fileID: 1059014099}
   m_Layer: 5
   m_Name: Player 4 right
   m_TagString: Untagged
@@ -5217,7 +5508,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1059014097}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1059014099}
+        m_TargetAssemblyTypeName: KeybindButton, Assembly-CSharp
+        m_MethodName: StartRebind
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1059014097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5256,6 +5559,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059014094}
   m_CullTransparentMesh: 1
+--- !u!114 &1059014099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059014094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83f4a76f84f6e84b8bc87bfac9d886c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeybindButton
+  playerNumber: 4
+  action: right
+  buttonText: {fileID: 1422719271}
+  fixedKey: 0
 --- !u!1 &1067402834
 GameObject:
   m_ObjectHideFlags: 0
@@ -5289,6 +5608,7 @@ MonoBehaviour:
   modePanel: {fileID: 1035201784}
   vsAIPanel: {fileID: 1523162714}
   localPlayPanel: {fileID: 1333148139}
+  keybindPanel: {fileID: 751303969}
   comingSoonText: {fileID: 2100446325}
   gameSceneName: MainGameScene
 --- !u!4 &1067402836
@@ -5580,6 +5900,138 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1139698462}
   m_CullTransparentMesh: 1
+--- !u!1 &1185749103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1185749104}
+  - component: {fileID: 1185749107}
+  - component: {fileID: 1185749106}
+  - component: {fileID: 1185749105}
+  m_Layer: 5
+  m_Name: Button(Back)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1185749104
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185749103}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 751303970}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -310, y: -356}
+  m_SizeDelta: {x: 279.3254, y: 125.1684}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1185749105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185749103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1185749106}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1067402835}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_MethodName: BackFromKeybinds
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1185749106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185749103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 868217209977518434, guid: 06a7b6f73a14f0b4a97a1f68b2bc3217, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1185749107
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185749103}
+  m_CullTransparentMesh: 1
 --- !u!1 &1192038639
 GameObject:
   m_ObjectHideFlags: 0
@@ -5861,6 +6313,7 @@ GameObject:
   - component: {fileID: 1222511960}
   - component: {fileID: 1222511959}
   - component: {fileID: 1222511958}
+  - component: {fileID: 1222511961}
   m_Layer: 5
   m_Name: Player 4 bomb
   m_TagString: Untagged
@@ -5931,7 +6384,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1222511959}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1222511961}
+        m_TargetAssemblyTypeName: KeybindButton, Assembly-CSharp
+        m_MethodName: StartRebind
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1222511959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5970,6 +6435,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222511956}
   m_CullTransparentMesh: 1
+--- !u!114 &1222511961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222511956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83f4a76f84f6e84b8bc87bfac9d886c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeybindButton
+  playerNumber: 4
+  action: bomb
+  buttonText: {fileID: 1192038641}
+  fixedKey: 0
 --- !u!1 &1234091497
 GameObject:
   m_ObjectHideFlags: 0
@@ -6737,6 +7218,7 @@ GameObject:
   - component: {fileID: 1349875371}
   - component: {fileID: 1349875370}
   - component: {fileID: 1349875369}
+  - component: {fileID: 1349875372}
   m_Layer: 5
   m_Name: Player 2 down
   m_TagString: Untagged
@@ -6807,7 +7289,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1349875370}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1349875372}
+        m_TargetAssemblyTypeName: KeybindButton, Assembly-CSharp
+        m_MethodName: StartRebind
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1349875370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6846,6 +7340,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1349875367}
   m_CullTransparentMesh: 1
+--- !u!114 &1349875372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349875367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83f4a76f84f6e84b8bc87bfac9d886c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeybindButton
+  playerNumber: 2
+  action: down
+  buttonText: {fileID: 1234091499}
+  fixedKey: 0
 --- !u!1 &1391614303
 GameObject:
   m_ObjectHideFlags: 0
@@ -7114,6 +7624,182 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1422719269}
+  m_CullTransparentMesh: 1
+--- !u!1 &1477788428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1477788430}
+  - component: {fileID: 1477788429}
+  m_Layer: 0
+  m_Name: KeybindManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1477788429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477788428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a50c1b00ec32d004c884980801496d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeybindManager
+--- !u!4 &1477788430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477788428}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1037.989, y: 579.60065, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1489446202
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1489446203}
+  - component: {fileID: 1489446206}
+  - component: {fileID: 1489446205}
+  - component: {fileID: 1489446204}
+  m_Layer: 5
+  m_Name: Button (play game)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1489446203
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489446202}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.3, y: 4.1437497, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 751303970}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 227, y: -347}
+  m_SizeDelta: {x: 135.8306, y: 30.4952}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1489446204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489446202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1489446205}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1067402835}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_MethodName: PlayLocalGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1489446205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489446202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 997185319067512731, guid: 60ff05b820955ed4fb0cf24ac39da4d4, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1489446206
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489446202}
   m_CullTransparentMesh: 1
 --- !u!1 &1523162714
 GameObject:
@@ -7484,6 +8170,7 @@ GameObject:
   - component: {fileID: 1584688433}
   - component: {fileID: 1584688432}
   - component: {fileID: 1584688431}
+  - component: {fileID: 1584688434}
   m_Layer: 5
   m_Name: Player 4 down
   m_TagString: Untagged
@@ -7554,7 +8241,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1584688432}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1584688434}
+        m_TargetAssemblyTypeName: KeybindButton, Assembly-CSharp
+        m_MethodName: StartRebind
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1584688432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7593,6 +8292,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584688429}
   m_CullTransparentMesh: 1
+--- !u!114 &1584688434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584688429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83f4a76f84f6e84b8bc87bfac9d886c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeybindButton
+  playerNumber: 4
+  action: down
+  buttonText: {fileID: 461404840}
+  fixedKey: 0
 --- !u!1 &1598817413
 GameObject:
   m_ObjectHideFlags: 0
@@ -7742,6 +8457,7 @@ GameObject:
   - component: {fileID: 1609272542}
   - component: {fileID: 1609272541}
   - component: {fileID: 1609272540}
+  - component: {fileID: 1609272543}
   m_Layer: 5
   m_Name: Player 2 bomb
   m_TagString: Untagged
@@ -7812,7 +8528,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1609272541}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1609272543}
+        m_TargetAssemblyTypeName: KeybindButton, Assembly-CSharp
+        m_MethodName: StartRebind
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1609272541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7851,6 +8579,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609272538}
   m_CullTransparentMesh: 1
+--- !u!114 &1609272543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609272538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83f4a76f84f6e84b8bc87bfac9d886c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeybindButton
+  playerNumber: 2
+  action: Bomb
+  buttonText: {fileID: 424805013}
+  fixedKey: 0
 --- !u!1 &1636610377
 GameObject:
   m_ObjectHideFlags: 0
@@ -8000,6 +8744,7 @@ GameObject:
   - component: {fileID: 1660317026}
   - component: {fileID: 1660317025}
   - component: {fileID: 1660317024}
+  - component: {fileID: 1660317027}
   m_Layer: 5
   m_Name: Player 3 bomb
   m_TagString: Untagged
@@ -8070,7 +8815,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1660317025}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1660317027}
+        m_TargetAssemblyTypeName: KeybindButton, Assembly-CSharp
+        m_MethodName: StartRebind
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1660317025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8109,6 +8866,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1660317022}
   m_CullTransparentMesh: 1
+--- !u!114 &1660317027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660317022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83f4a76f84f6e84b8bc87bfac9d886c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeybindButton
+  playerNumber: 3
+  action: Bomb
+  buttonText: {fileID: 424534176}
+  fixedKey: 0
 --- !u!1 &1674762586
 GameObject:
   m_ObjectHideFlags: 0
@@ -8161,9 +8934,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f83f4a76f84f6e84b8bc87bfac9d886c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeybindButton
-  playerNumber: 0
-  action: 
-  buttonText: {fileID: 0}
+  playerNumber: 1
+  action: Bomb
+  buttonText: {fileID: 506643126}
+  fixedKey: 0
 --- !u!114 &1674762589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8207,7 +8981,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1674762590}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1674762588}
+        m_TargetAssemblyTypeName: KeybindButton, Assembly-CSharp
+        m_MethodName: StartRebind
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1674762590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8330,7 +9116,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1067402835}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-        m_MethodName: StartLocalPlay
+        m_MethodName: ShowKeybindPanel
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9077,6 +9863,7 @@ MonoBehaviour:
   playerNumber: 1
   action: right
   buttonText: {fileID: 234874874}
+  fixedKey: 0
 --- !u!114 &1964281912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9120,7 +9907,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1964281913}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1964281911}
+        m_TargetAssemblyTypeName: KeybindButton, Assembly-CSharp
+        m_MethodName: StartRebind
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1964281913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10014,7 +10813,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2141047049
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10049,7 +10848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0.14117648, a: 0.9490196}
+  m_Color: {r: 0.043137256, g: 0.043137256, b: 0.11764707, a: 0.9490196}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10087,3 +10886,4 @@ SceneRoots:
   - {fileID: 1567309362}
   - {fileID: 41294517}
   - {fileID: 1067402836}
+  - {fileID: 1477788430}

@@ -7,9 +7,12 @@ public class MainMenuManager : MonoBehaviour
     public GameObject modePanel;
     public GameObject vsAIPanel;
     public GameObject localPlayPanel;
+    public GameObject keybindPanel;
     public GameObject comingSoonText;
 
     public string gameSceneName = "MainGameScene";
+
+    private int selectedLocalPlayerCount = 2;
 
     void Start()
     {
@@ -25,6 +28,7 @@ public class MainMenuManager : MonoBehaviour
         modePanel.SetActive(false);
         vsAIPanel.SetActive(false);
         localPlayPanel.SetActive(false);
+        keybindPanel.SetActive(false);
 
         if (comingSoonText != null)
             comingSoonText.SetActive(false);
@@ -36,6 +40,7 @@ public class MainMenuManager : MonoBehaviour
         modePanel.SetActive(true);
         vsAIPanel.SetActive(false);
         localPlayPanel.SetActive(false);
+        keybindPanel.SetActive(false);
 
         if (comingSoonText != null)
             comingSoonText.SetActive(false);
@@ -47,6 +52,7 @@ public class MainMenuManager : MonoBehaviour
         modePanel.SetActive(false);
         vsAIPanel.SetActive(true);
         localPlayPanel.SetActive(false);
+        keybindPanel.SetActive(false);
 
         if (comingSoonText != null)
             comingSoonText.SetActive(false);
@@ -58,15 +64,41 @@ public class MainMenuManager : MonoBehaviour
         modePanel.SetActive(false);
         vsAIPanel.SetActive(false);
         localPlayPanel.SetActive(true);
+        keybindPanel.SetActive(false);
 
         if (comingSoonText != null)
             comingSoonText.SetActive(false);
     }
 
-    public void ShowComingSoon()
+    public void ShowKeybindPanel(int playerCount)
     {
+        selectedLocalPlayerCount = playerCount;
+
+        titlePanel.SetActive(false);
+        modePanel.SetActive(false);
+        vsAIPanel.SetActive(false);
+        localPlayPanel.SetActive(false);
+        keybindPanel.SetActive(true);
+
         if (comingSoonText != null)
-            comingSoonText.SetActive(true);
+            comingSoonText.SetActive(false);
+
+        Debug.Log("Selected local players: " + selectedLocalPlayerCount);
+    }
+
+    public void BackFromKeybinds()
+    {
+        keybindPanel.SetActive(false);
+        localPlayPanel.SetActive(true);
+    }
+
+    public void PlayLocalGame()
+    {
+        PlayerPrefs.SetString("GameMode", "LOCAL");
+        PlayerPrefs.SetInt("PlayerCount", selectedLocalPlayerCount);
+        PlayerPrefs.Save();
+
+        SceneManager.LoadScene(gameSceneName);
     }
 
     public void StartVsAI(int aiCount)
@@ -78,12 +110,9 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene(gameSceneName);
     }
 
-    public void StartLocalPlay(int playerCount)
+    public void ShowComingSoon()
     {
-        PlayerPrefs.SetString("GameMode", "LOCAL");
-        PlayerPrefs.SetInt("PlayerCount", playerCount);
-        PlayerPrefs.Save();
-
-        SceneManager.LoadScene(gameSceneName);
+        if (comingSoonText != null)
+            comingSoonText.SetActive(true);
     }
 }

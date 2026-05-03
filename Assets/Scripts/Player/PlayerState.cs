@@ -9,8 +9,7 @@ public class PlayerState : MonoBehaviour
     private bool isDead = false;
     private Coroutine stunCoroutine;
 
-    private PlayerMovement player1Movement;
-    private Player2Movement player2Movement;
+    private PlayerMovement playerMovement;
     private BombPlacement bombPlacementScript;
     private SpriteRenderer spriteRenderer;
 
@@ -22,8 +21,7 @@ public class PlayerState : MonoBehaviour
 
     void Awake()
     {
-        player1Movement = GetComponent<PlayerMovement>();
-        player2Movement = GetComponent<Player2Movement>();
+        playerMovement = GetComponent<PlayerMovement>();
         bombPlacementScript = GetComponent<BombPlacement>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -54,9 +52,7 @@ public class PlayerState : MonoBehaviour
         }
 
         if (stunCoroutine != null)
-        {
             StopCoroutine(stunCoroutine);
-        }
 
         stunCoroutine = StartCoroutine(StunRoutine());
     }
@@ -65,11 +61,8 @@ public class PlayerState : MonoBehaviour
     {
         isStunned = true;
 
-        if (player1Movement != null)
-            player1Movement.enabled = false;
-
-        if (player2Movement != null)
-            player2Movement.enabled = false;
+        if (playerMovement != null)
+            playerMovement.enabled = false;
 
         if (bombPlacementScript != null)
             bombPlacementScript.enabled = false;
@@ -79,9 +72,7 @@ public class PlayerState : MonoBehaviour
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
-        {
             rb.linearVelocity = Vector2.zero;
-        }
 
         yield return new WaitForSeconds(stunDuration);
 
@@ -89,11 +80,8 @@ public class PlayerState : MonoBehaviour
         {
             isStunned = false;
 
-            if (player1Movement != null)
-                player1Movement.enabled = true;
-
-            if (player2Movement != null)
-                player2Movement.enabled = true;
+            if (playerMovement != null)
+                playerMovement.enabled = true;
 
             if (bombPlacementScript != null)
                 bombPlacementScript.enabled = true;
@@ -113,20 +101,15 @@ public class PlayerState : MonoBehaviour
         if (stunCoroutine != null)
             StopCoroutine(stunCoroutine);
 
-        if (player1Movement != null)
-            player1Movement.enabled = false;
-
-        if (player2Movement != null)
-            player2Movement.enabled = false;
+        if (playerMovement != null)
+            playerMovement.enabled = false;
 
         if (bombPlacementScript != null)
             bombPlacementScript.enabled = false;
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
-        {
             rb.linearVelocity = Vector2.zero;
-        }
 
         gameObject.SetActive(false);
     }

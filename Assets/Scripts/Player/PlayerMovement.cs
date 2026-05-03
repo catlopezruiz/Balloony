@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector2 movement;
-
     private Animator animator;
     private SpriteRenderer spriteRenderer;
 
@@ -56,10 +55,8 @@ public class PlayerMovement : MonoBehaviour
         // Flip sprite
         if (spriteRenderer != null)
         {
-            if (movement.x < 0)
-                spriteRenderer.flipX = true;
-            else if (movement.x > 0)
-                spriteRenderer.flipX = false;
+            if (movement.x < 0) spriteRenderer.flipX = true;
+            else if (movement.x > 0) spriteRenderer.flipX = false;
         }
     }
 

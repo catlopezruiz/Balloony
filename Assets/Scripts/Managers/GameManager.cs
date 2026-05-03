@@ -42,8 +42,6 @@ public class GameManager : MonoBehaviour
         {
             int aiCount = PlayerPrefs.GetInt("AICount", 1);
 
-            Debug.Log("Spawning 1 player and " + aiCount + " AI.");
-
             SpawnPlayer(playerSpawns[0], 1);
 
             for (int i = 0; i < aiCount && i < aiSpawns.Length; i++)
@@ -54,10 +52,6 @@ public class GameManager : MonoBehaviour
         else if (gameMode == "LOCAL")
         {
             int playerCount = PlayerPrefs.GetInt("PlayerCount", 2);
-
-            Debug.Log("Requested local players: " + playerCount);
-            Debug.Log("Player spawns available: " + playerSpawns.Length);
-
             int amountToSpawn = Mathf.Min(playerCount, playerSpawns.Length);
 
             for (int i = 0; i < amountToSpawn; i++)
@@ -67,7 +61,7 @@ public class GameManager : MonoBehaviour
 
             if (playerCount > playerSpawns.Length)
             {
-                Debug.LogWarning("Not enough spawn points! Add more Player Spawns in the GameManager Inspector.");
+                Debug.LogWarning("Not enough player spawn points.");
             }
         }
     }
@@ -79,7 +73,7 @@ public class GameManager : MonoBehaviour
 
         AssignLocalControls(player, playerNumber);
 
-        Debug.Log("Spawned Player " + playerNumber + " at " + spawnPoint.name);
+        Debug.Log("Spawned Player " + playerNumber);
     }
 
     void AssignLocalControls(GameObject player, int playerNumber)
@@ -160,14 +154,10 @@ public class GameManager : MonoBehaviour
         {
             gameEnded = true;
 
-            string message = "";
-
             if (lastAlive != null)
-                message = lastAlive.gameObject.name + " Wins!";
+                ShowWinText(lastAlive.gameObject.name + " Wins!");
             else
-                message = "Draw!";
-
-            ShowWinText(message);
+                ShowWinText("Draw!");
         }
     }
 

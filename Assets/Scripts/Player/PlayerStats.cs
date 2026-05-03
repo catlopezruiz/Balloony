@@ -22,19 +22,10 @@ public class PlayerStats : MonoBehaviour
 
     public void IncreaseSpeed(float amount)
     {
-        PlayerMovement p1 = GetComponent<PlayerMovement>();
-        Player2Movement p2 = GetComponent<Player2Movement>();
-
-        if (p1 != null)
+        if (playerMovement != null)
         {
-            p1.moveSpeed = Mathf.Min(p1.moveSpeed + amount, maxSpeed);
-            Debug.Log("P1 Speed is now: " + p1.moveSpeed);
-        }
-
-        if (p2 != null)
-        {
-            p2.moveSpeed = Mathf.Min(p2.moveSpeed + amount, maxSpeed);
-            Debug.Log("P2 Speed is now: " + p2.moveSpeed);
+            playerMovement.moveSpeed = Mathf.Min(playerMovement.moveSpeed + amount, maxSpeed);
+            Debug.Log("Speed is now: " + playerMovement.moveSpeed);
         }
     }
 
