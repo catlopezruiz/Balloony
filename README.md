@@ -115,7 +115,12 @@ More power-ups
 Cosmetic customization
 Ranked matchmaking
 Expanded AI behaviors
+
+
 Team Members
+
 Catherine Lopez-Ruiz
+
 Zion Hsieh
+
 Christopher Mendoza
