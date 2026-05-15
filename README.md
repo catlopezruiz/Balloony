@@ -100,6 +100,62 @@ No Unity installation is required.
 ### Steps
 
 1. Clone the repository:
+2. Open Unity Hub
+Click:
+Add Project From Disk
+Select the cloned Balloony folder
+Open the project using Unity 6000.3.7f1
+Open:
+Assets/Scenes/MainGameScene.unity
+Press the Play button in Unity
+Build Instructions
+
+To create a playable executable:
+
+Open Unity
+Go to:
+File → Build Profiles
+Select:
+Windows
+Add the main scene to the build
+Click:
+Build
+Choose an output folder
+
+Unity will generate:
+
+Balloony.exe
+Balloony_Data
+runtime files
+Project Structure
+Assets/
+├── Scripts/
+├── Prefabs/
+├── Scenes/
+├── Art/
+├── Animations/
+├── Audio/
+└── Tilemaps/
+Known Issues
+Multiplayer networking systems are still experimental
+Some AI behaviors may occasionally become stuck
+Minor balancing adjustments may still be needed
+Future Improvements
+Online multiplayer support
+Additional maps
+More power-ups
+Cosmetic customization
+Ranked matchmaking
+Expanded AI behaviors
+
+Team Members
+
+Catherine Lopez-Ruiz
+
+Zion Hsieh
+
+Christopher Mendoza
+
 
 ```bash
 git clone https://github.com/catlopezruiz/Balloony.git
