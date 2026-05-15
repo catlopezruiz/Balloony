@@ -40,7 +40,7 @@ The last remaining player wins.
 
 Controls
 
-Player 1
+Player 1 
 Action	Key
 Move Up	W
 Move Down	S
