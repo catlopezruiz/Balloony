@@ -1,149 +1,105 @@
-Balloony (Formerly BathBomb)
+# Balloony (Formerly BathBomb)
 
 Balloony is a multiplayer PvP party game inspired by classic Bomberman gameplay. Players battle in restroom-themed arenas using bath bombs, collecting power-ups and avoiding explosions to become the last player standing.
 
-Features
-Multiplayer local PvP gameplay
-Grid-based Bomberman-inspired mechanics
-Bath bomb placement and explosion system
-Power-ups (speed, bomb range, max bombs)
-AI opponents
-Match win detection
-Cartoon restroom-themed arenas
-Player stun/elimination mechanics
+---
 
+# Features
 
-Technologies Used
-Unity 6 (6000.3.7f1)
-C#
-GitHub
-Unity Tilemap System
+- Multiplayer local PvP gameplay
+- Grid-based Bomberman-inspired mechanics
+- Bath bomb placement and explosion system
+- Power-ups (speed, bomb range, max bombs)
+- AI opponents
+- Match win detection
+- Cartoon restroom-themed arenas
+- Player stun/elimination mechanics
+
+---
+
+# Technologies Used
+
+- Unity 6 (6000.3.7f1)
+- C#
+- GitHub
+- Unity Tilemap System
+
+---
+
+# GitHub Repository
 
 Repository Link:
 
 https://github.com/catlopezruiz/Balloony.git
 
-How To Play
-Objective
+---
 
-Eliminate all other players using water balloons and survive until the end of the match.
+# How To Play
 
-Gameplay
-Move around the arena
-Place water balloons
-Avoid explosions
-Break destructible blocks
-Collect power-ups
-Trap opponents
+## Objective
+
+Eliminate all other players using bath bombs and survive until the end of the match.
+
+## Gameplay
+
+- Move around the arena
+- Place bath bombs
+- Avoid explosions
+- Break destructible blocks
+- Collect power-ups
+- Trap opponents
 
 The last remaining player wins.
 
-Controls
+---
 
-Player 1 
-Action	Key
-Move Up	W
-Move Down	S
-Move Left	A
-Move Right	D
-Place Water Balloon	Space
+# Controls
 
-Player 2
-Action	Key
-Move Up	Up Arrow
-Move Down	Down Arrow
-Move Left	Left Arrow
-Move Right	Right Arrow
-Place Bath Bomb	Right Shift
+## Player 1
 
-How To Run The Gam
-Option 1 — Play Using Build (Recommended)
-Download BalloonyBuild.zip
-Extract the ZIP folder
-Open the extracted folder
+| Action | Key |
+|---|---|
+| Move Up | W |
+| Move Down | S |
+| Move Left | A |
+| Move Right | D |
+| Place Bath Bomb | Space |
 
-Double-click Balloony.exe
+## Player 2
 
+| Action | Key |
+|---|---|
+| Move Up | Up Arrow |
+| Move Down | Down Arrow |
+| Move Left | Left Arrow |
+| Move Right | Right Arrow |
+| Place Bath Bomb | Right Shift |
+
+---
+
+# How To Run The Game
+
+## Option 1 — Play Using Build (Recommended)
+
+1. Download `BalloonyBuild.zip`
+2. Extract the ZIP folder
+3. Open the extracted folder
+4. Double-click `Balloony.exe`
 
 No Unity installation is required.
 
+---
 
-Option 2 — Open In Unity
+## Option 2 — Open In Unity
 
-Requirements
+### Requirements
 
-Unity Hub
+- Unity Hub
+- Unity Editor 6000.3.7f1
 
-Unity Editor 6000.3.7f1
+### Steps
 
-Steps
+1. Clone the repository:
 
-Clone the repository:
-
+```bash
 git clone https://github.com/catlopezruiz/Balloony.git
-
-Open Unity Hub
-
-Click:
-
-Add Project From Disk
-
-Select the cloned Balloony folder
-
-Open the project using Unity 6000.3.7f1
-
-Open:
-
-Assets/Scenes/MainGameScene.unity
-
-Press the Play button in Unity
-
-Build Instructions
-
-
-To create a playable executable:
-
-Open Unity
-Go to:
-File → Build Profiles
-Select:
-Windows
-Add the main scene to the build
-Click:
-Build
-Choose an output folder
-
-Unity will generate:
-
-Balloony.exe
-Balloony_Data
-runtime files
-Project Structure
-Assets/
-├── Scripts/
-├── Prefabs/
-├── Scenes/
-├── Art/
-├── Animations/
-├── Audio/
-└── Tilemaps/
-Known Issues
-Multiplayer networking systems are still experimental
-Some AI behaviors may occasionally become stuck
-Minor balancing adjustments may still be needed
-Future Improvements
-Online multiplayer support
-Additional maps
-More power-ups
-Cosmetic customization
-Ranked matchmaking
-Expanded AI behaviors
-
-
-Team Members
-
-Catherine Lopez-Ruiz
-
-Zion Hsieh
-
-Christopher Mendoza
