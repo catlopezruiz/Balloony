@@ -11,12 +11,13 @@ AI opponents
 Match win detection
 Cartoon restroom-themed arenas
 Player stun/elimination mechanics
+
+
 Technologies Used
 Unity 6 (6000.3.7f1)
 C#
 GitHub
 Unity Tilemap System
-GitHub Repository
 
 Repository Link:
 
@@ -25,11 +26,11 @@ https://github.com/catlopezruiz/Balloony.git
 How To Play
 Objective
 
-Eliminate all other players using bath bombs and survive until the end of the match.
+Eliminate all other players using water balloons and survive until the end of the match.
 
 Gameplay
 Move around the arena
-Place bath bombs
+Place water balloons
 Avoid explosions
 Break destructible blocks
 Collect power-ups
