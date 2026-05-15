@@ -41,41 +41,25 @@ The last remaining player wins.
 Controls
 
 Player 1
-
 Action	Key
-
 Move Up	W
-
 Move Down	S
-
 Move Left	A
-
 Move Right	D
-
-Place Bath Bomb	Space
+Place Water Balloon	Space
 
 Player 2
-
 Action	Key
-
 Move Up	Up Arrow
-
 Move Down	Down Arrow
-
 Move Left	Left Arrow
-
 Move Right	Right Arrow
-
 Place Bath Bomb	Right Shift
 
-
-How To Run The Game
+How To Run The Gam
 Option 1 — Play Using Build (Recommended)
-
 Download BalloonyBuild.zip
-
 Extract the ZIP folder
-
 Open the extracted folder
 
 Double-click Balloony.exe
