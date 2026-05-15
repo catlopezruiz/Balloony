@@ -39,45 +39,83 @@ Trap opponents
 The last remaining player wins.
 
 Controls
+
 Player 1
+
 Action	Key
+
 Move Up	W
+
 Move Down	S
+
 Move Left	A
+
 Move Right	D
+
 Place Bath Bomb	Space
+
 Player 2
+
 Action	Key
+
 Move Up	Up Arrow
+
 Move Down	Down Arrow
+
 Move Left	Left Arrow
+
 Move Right	Right Arrow
+
 Place Bath Bomb	Right Shift
+
+
 How To Run The Game
 Option 1 — Play Using Build (Recommended)
+
 Download BalloonyBuild.zip
+
 Extract the ZIP folder
+
 Open the extracted folder
+
 Double-click Balloony.exe
+
 
 No Unity installation is required.
 
+
 Option 2 — Open In Unity
+
 Requirements
+
 Unity Hub
+
 Unity Editor 6000.3.7f1
+
 Steps
+
 Clone the repository:
+
 git clone https://github.com/catlopezruiz/Balloony.git
+
 Open Unity Hub
+
 Click:
+
 Add Project From Disk
+
 Select the cloned Balloony folder
+
 Open the project using Unity 6000.3.7f1
+
 Open:
+
 Assets/Scenes/MainGameScene.unity
+
 Press the Play button in Unity
+
 Build Instructions
+
 
 To create a playable executable:
 
